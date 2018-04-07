@@ -1,47 +1,59 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<!-- Definição do Titulo -->
+@section('title')
+    <title>Recuperar Senha</title>
+@endsection
+<!-- Section Template Principal: body -->
+@section('body')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+    <body class="grey lighten-3">
+@endsection 
+
+<!-- Section Template Principal: main  -->
+@section('main')
+
+    <center>
+        <!-- Import logo -->
+        <div class="blue darken-1" style="min-height:260px">
+            <br/>
+            <img src="{{ asset('/img/logo.png') }}" alt="Logo do site @Fé.com" width="125px" height="68px"/>
+        </div>
+
+        <!-- card de login -->
+        <div class="row">
+            <div class="col l6 m6 offset-l3 offset-m3 white" style="margin-top:-150px; padding-left:60px;padding-right:60px;padding-bottom:30px">
+                <br/>
+                <div class="row">
+                    <!-- Título do Card -->
+                    <span class="card-title blue-text text-darken-4" style="font-size:20px">
+                        ESQUECI MINHA SENHA
+                    </span>
+                    <!-- Formulário de Login -->
+                    <form action="{{ route('password.email') }}" method="POST">
+                    @csrf
+                        <!-- Mensagem Avisando o envio do Link de Recuperação -->
+                        <div class="col l12">
+                            <br/>
+                            <p class="card-title green-text text-darken-4" align="justify" style="font-size:16px">
+                                Digite o seu e-mail logo abaixo e clique em "Enviar Link". O sistema enviará um link para o e-mail digitado. Acesse o seu e-mail e clique no link enviado.
+                            </p>
                         </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <!-- Definição Email -->
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="email" type="email" class="validate" name="email" required>
+                            <label for="email">Digite seu Email:</label>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
+                        <!-- Botão para Logar na Conta -->
+                        <div class="col l6 s12 offset-l3">
+                            <button class="btn blue darken-2 waves-effect waves-blue z-depth-0" style="width:80%;margin-top:20px;" type="submit" name="entrar">Enviar Link
+                                <i class="material-icons right green" style="margin-right:-17px;padding-left:10px;padding-right:10px">arrow_forward</i>
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </center>
 @endsection

@@ -8,13 +8,11 @@
         <!-- Import google fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/website.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="{{ asset('/css/website.css') }}"  media="screen,projection"/>
         <!-- Import JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Import google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+
         <!-- Import icone Site -->
         <link rel="icon" type="imagem/png" href="img/icone4.png" />
         <!-- Definição do Título -->

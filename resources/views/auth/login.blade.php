@@ -59,7 +59,7 @@
                         </div>
 
                         <!-- Esqueci Minha Senha -->
-                        <a href="#" class=" red-text text-darken-2 right waves-effect waves-blue z-depth-0" style="">Esqueci Minha Senha</a>
+                        <a href="{{ route('password.request') }}" class=" red-text text-darken-2 right waves-effect waves-blue z-depth-0" style="">Esqueci Minha Senha</a>
 
                         <!-- Botão para Logar na Conta -->
                         <div class="col l6 s12 offset-l3">
@@ -74,6 +74,6 @@
         </div>
 
         <!-- Botão para Cadastrar Usuário -->
-        <a href="#" class="waves-effect waves-teal btn grey lighten-1 green-text text-darken-4 z-depth-0" style="width:50%">Cadastre-se AQUI</a>
+        <a href="{{ route('register') }}" class="waves-effect waves-teal btn grey lighten-1 green-text text-darken-4 z-depth-0" style="width:50%">Cadastre-se AQUI</a>
     </center>
     @endsection
