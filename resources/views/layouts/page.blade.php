@@ -50,8 +50,8 @@
 
         <!-- Import JS -->
         <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/validacao/jquery.maskedinput.min.js"></script>
-        <script type="text/javascript" src="js/validacao/jquery.validate.min.js"></script>
+        <!-- <script type="text/javascript" src="js/validacao/jquery.maskedinput.min.js"></script>
+        <script type="text/javascript" src="js/validacao/jquery.validate.min.js"></script> -->
         <!-- Imports Scripts específico das páginas -->
         @stack('scripts')
         

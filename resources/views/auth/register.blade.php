@@ -31,7 +31,7 @@
                     <!-- Formulário de Login -->
                     <form id="frmCadastro" action="{{ route('register') }}" method="POST">
                         <!-- Definição do token -->
-                        @csrf
+                        @csrf 
                         <!-- Definição Nome -->
                         <div class="input-field col l6 s12">
                             <input id="name" type="text" class="validate pula" name="name" required>
@@ -143,5 +143,5 @@
 
 <!-- Import Scripts específico para esta página -->
 @push('scripts')
-    <script type="text/javascript" src="js/pages/register.js"></script>
+    <script type="text/javascript" src=""></script>
 @endpush
