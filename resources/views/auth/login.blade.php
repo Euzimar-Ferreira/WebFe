@@ -35,7 +35,7 @@
                         <!-- Definição Email -->
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="email" type="text" name="email" value="{{ old('email') }}" required autofocus>
+                            <input id="email" type="text" name="email" value="{{ old('email') }}" autofocus>
                             <label for="email">Digite seu Email:</label>
                             <!-- Mensagem erro, Caso Ocorra -->
                             @if ($errors->has('email'))
@@ -48,7 +48,7 @@
                         <!-- Definição de Senha -->
                         <div class="input-field col s12">
                             <i class="material-icons prefix">vpn_key</i>
-                            <input id="password" type="password" required>
+                            <input id="password" type="password" name="password">
                             <label for="password">Digite a sua Senha:</label>
                             <!-- Mensagem erro, Caso Ocorra -->
                             @if ($errors->has('password'))

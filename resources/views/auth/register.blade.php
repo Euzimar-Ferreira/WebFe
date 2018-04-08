@@ -125,6 +125,7 @@
                         <!-- Adicionar Foto Usuário -->
                         <div class="col l5 s12 grey lighten-3" style="padding-top:20px;padding-bottom:10px;">
                             <a class="green-text text-darken-2" href="#!">
+                            <input id="image" type="text" name="image" maxlength="15"
                                 <i class="large material-icons grey-text text-darken-2" style="width:100%;">photo_camera</i> ADICIONAR FOTO
                             </a>
                         </div>
