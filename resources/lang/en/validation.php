@@ -104,9 +104,6 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-        'auth' => [
-            'failed' => 'adasd',
-        ],
     ],
 
     /*
