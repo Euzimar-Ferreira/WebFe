@@ -28,8 +28,21 @@
                     <span class="card-title blue-text text-darken-4" style="font-size:20px">
                         ACESSAR
                     </span>
+
+                    <!-- Alertas -->
+                    @if(session('success'))
+                        <div class="input-field col l12 m12 s12">
+                          {{session('success')}}
+                        </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="input-field col l12 m12 s12">
+                          {{session('error')}}
+                        </div>
+                    @endif
+
                     <!-- Formulário de Login -->
-                    <form id="frmCadastro" action="{{ route('register') }}" method="POST">
+                    <form id="frmCadastro" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                         <!-- Definição do token -->
                         @csrf 
                         <!-- Definição Nome -->
@@ -123,12 +136,16 @@
                             </div>
                         </div>
                         <!-- Adicionar Foto Usuário -->
-                        <div class="col l5 s12 grey lighten-3" style="padding-top:20px;padding-bottom:10px;">
-                            <a class="green-text text-darken-2" href="#!">
-                            <input id="image" type="text" name="image" maxlength="15"
-                                <i class="large material-icons grey-text text-darken-2" style="width:100%;">photo_camera</i> ADICIONAR FOTO
-                            </a>
-                        </div>
+                                <div class="col l5 s12 grey lighten-3 file-field input-field" style="padding-top:20px;padding-bottom:10px;">
+                                    <a class="green-text text-darken-2" href="">
+                                        <img src="/storage/avatarUser/default.png" whidth="100px" height="100px" alt="Foto de Perfil">
+                                        <input type="file" name="image">
+                                    </a>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="hidden" >
+                                    </div>
+                                    
+                                </div>
                         <!-- Botão para Logar na Conta -->
                         <div class="col l6 s12 offset-l3">
                             <button class="btn blue darken-2 waves-effect waves-blue z-depth-0" style="width:80%;margin-top:40px;" type="submit" name="register">CADASTRAR

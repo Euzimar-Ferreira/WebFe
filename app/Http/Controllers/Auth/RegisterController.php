@@ -34,7 +34,15 @@ class RegisterController extends Controller
     {
         $dados = $request->all();
 
-        event(new Registered($user = $this->create($dados)));
+        $nameFile = $this->importFile($dados, $request);
+
+        if ($nameFile == null) {
+           return redirect()->back()->with('error','O sistema encontrou Falhas ao Importar a Imagem');
+        }
+        
+        $dados['image'] = $nameFile;
+
+        event(new Registered($user = $this->create($dados, $request)));
         
         $this->guard()->login($user);
 
@@ -42,8 +50,9 @@ class RegisterController extends Controller
                         ?: redirect($this->redirectPath());
     }
 
-    protected function create(array $data)
+    protected function create(array $data,Request $request)
     {
+        
         $result = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -84,7 +93,30 @@ class RegisterController extends Controller
             return $result;
     }
 
-    
+    protected function importFile(array $data, Request $request)
+    {
+        //Criar nome para novo arquivo de imagem: Avatar do Usuário
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $name = ((User::max('id'))+1).'-'.$data['name'];
+            $extension = $request->image->extension();
+            $nameFile = "{$name}.{$extension}";
+            if ($extension != 'png' && $extension != 'jpg') {
+                return null;
+            } else {
+                $upload = $request->image->storeAs('avatarUser',$nameFile);
 
+                if(!$upload)
+                    return null;
+    
+            }
+            
+        } else {
+            $name = 'default';
+            $extension = 'png';
+            $nameFile = "{$name}.{$extension}";
+        }
+        
+        return $nameFile;
+    }
 
 }
