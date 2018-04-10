@@ -96,7 +96,7 @@
                         </div>
                         <!-- Definição Data Nascimento -->
                         <div class="input-field col l6 s12">
-                            <input class="datepicker pula" placeholder="Clique Aqui" id="datebirth" name="datebirth" type="text" class="validate" name="datebirth" required>
+                            <input class="datepicker pulaa" onFocus="abrir()" placeholder="Clique Aqui" id="datebirth" name="datebirth" type="text" class="validate" name="datebirth" required>
                             <label for="datebirth">Data de Nascimento:</label>
                         </div>
                         <!-- Definição Celular -->
@@ -137,18 +137,21 @@
                         </div>
                         <!-- Adicionar Foto Usuário -->
                             
-                        <div class="col l5 s12 grey lighten-3 file-field input-field" style="padding-top:20px;padding-bottom:10px;">
+                        <div class="col l5 s12 grey lighten-3 file-field input-field hoverable" style="padding-top:20px;padding-bottom:10px;">
                             <a class="green-text text-darken-2">
                                 <input type="file" name="image" id="image" onchange="PreviewImage( this.form.image.value);" >
-                                <img id="visual" whidth="100px" height="100px" alt="Foto de Perfil">
+                                <img src="storage/avatarUser/default.png" id="visual" whidth="100px" height="100px" alt="Foto de Perfil">
+                                <div>
+                                    clique aqui Para alterar
+                                </div>
                             </a>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="hidden" >
                             </div>
-                        
+                            
                         </div>
-                        <span class="red-text left" id="msgAvatar" style="display:none"> 
-                            <strong>MENSAGEM DA IMAGEM</strong>
+                        <span class="red-text right" id="msgAvatar" style="display:none"> 
+                            <strong>Sistema Não Suporta esse arquivo</strong>
                         </span>
                         <!-- Botão para Logar na Conta -->
                         <div class="col l6 s12 offset-l3">
@@ -166,27 +169,7 @@
 <!-- Import Scripts específico para esta página -->
 @push('scripts')
 
-    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="js/pages/register.js"></script>
 
-<script>
-    
-    function PreviewImage(arquivo) { 
-        var oFReader = new FileReader(); 
-        oFReader.readAsDataURL(document.getElementById("image").files[0]);
-        var extensao = (arquivo.substring(arquivo.lastIndexOf("."))).toLowerCase(); 
-        if (extensao != '.jpg' && extensao != '.png') 
-        {
-            document.getElementById("msgAvatar").style.display = 'block'; 
-            oFReader.onload = function (oFREvent) { 
-                document.getElementById("visual").src = '/storage/avatarUser/default.png'; 
-            };
-        } else {
-            document.getElementById("msgAvatar").style.display = 'none';
-            oFReader.onload = function (oFREvent) { 
-                document.getElementById("visual").src = oFREvent.target.result; 
-            }; 
-        }
-        
-    };
-</script>
+    <script type="text/javascript" src="js/validacao/jquery.maskedinput.min.js"></script>
 @endpush

@@ -5,16 +5,38 @@ $(document).ready(function () {
         months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
             'Setembro', 'Outubro', 'Novembro', 'Dezembro'
         ],
+        monthsShort: ['jan', 'fev', 'mar', 'abr', 'maio', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
         weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
         weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'sab'],
-        cancel: 'Cancer',
+
+        monthsShort: ['jan', 'fev', 'mar', 'abr', 'maio', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
+        weekdaysFull: ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'],
+        weekdaysShort: ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'],
+        weekdaysLetter: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
         done: 'OK',
+        today: 'Hoje',
+        clear: 'Limpar',
+        close: 'Ok',
+        cancel: 'Cancelar',
     }
     $('.datepicker').datepicker({
-        format: 'yyyy/mm/dd',
-        cancel: 'Cancelar',
+        format: 'dd/mm/yyyy',
         i18n: teste,
+        showDaysInNextAndPreviousMonths: true,
+        yearRange:100,
+        selectMonths: true,
+        labelMonthNext: 'Proximo Mês',
+        labelMonthPrev: 'Mês Anterior',
+        labelMonthSelect: 'Selecionar Mês',
+        labelYearSelect: 'Selecionar Ano',
+        showMonthsShort: true,
+        maxDate: new Date(),
+        minDate: new Date(1900,0,1),
+        defaultDate: new Date(),
+        showClearBtn:true,
+        closeOnSelect: false,
     });
+
     // Método para pular campos teclando ENTER
     $('.pula').on('keypress', function(e){
         var tecla = (e.keyCode?e.keyCode:e.which);
@@ -56,3 +78,24 @@ $(document).ready(function () {
             
     });
 });
+
+function PreviewImage(arquivo) { 
+    var oFReader = new FileReader(); 
+    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+    var extensao = (arquivo.substring(arquivo.lastIndexOf("."))).toLowerCase(); 
+    if (extensao != '.jpg' && extensao != '.png') 
+    {
+        document.getElementById("msgAvatar").style.display = 'block'; 
+        oFReader.onload = function (oFREvent) { 
+            document.getElementById("visual").src = '/storage/avatarUser/default.png'; 
+        };
+    } else {
+        document.getElementById("msgAvatar").style.display = 'none';
+        oFReader.onload = function (oFREvent) { 
+            document.getElementById("visual").src = oFREvent.target.result; 
+        }; 
+    }
+};
+function abrir() { 
+    $ ('#datebirth').click();
+}

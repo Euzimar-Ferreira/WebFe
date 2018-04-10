@@ -15,6 +15,13 @@
 
         <!-- Import icone Site -->
         <link rel="icon" type="imagem/png" href="img/icone4.png" />
+
+         <style>
+            .imagem:hover .dd{
+                display:block !important;
+            }
+        </style>
+
         <!-- Definição do Título -->
         @yield('title')
     </head>
@@ -49,7 +56,7 @@
         </div>
 
         <!-- Import JS -->
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="{{asset('/js/materialize.min.js')}}"></script>
         <!-- <script type="text/javascript" src="js/validacao/jquery.maskedinput.min.js"></script>
         <script type="text/javascript" src="js/validacao/jquery.validate.min.js"></script> -->
         <!-- Imports Scripts específico das páginas -->
