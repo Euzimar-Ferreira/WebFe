@@ -16,6 +16,8 @@ TELA HOME FOI INICIADA COM SUCESSO
         @csrf
     </form>
 
+    <img src="/storage/avatarUser/{{$avatar}}" whidth="100px" height="100px" alt="Foto de Perfil">
+    <br/>
     <button class="btn" onclick="document.getElementById('form-logout').submit()">SAIR</button>
     
 </body>

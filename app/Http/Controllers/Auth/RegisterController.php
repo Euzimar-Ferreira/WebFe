@@ -71,25 +71,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
         ]);
-        //$result = User::create($dados);
-        /* $result = User::create([
-            'name' => $data['name'],
-            'lastname' => $data['lastname'],
-            'sex' => $data['sex'],
-            'cep' => $data['cep'],
-            'bairro' => $data['bairro'],
-            'city' => $data['city'],
-            'uf' => $data['uf'],
-            'address' => $data['address'],
-            'number' => $data['number'],
-            'datebirth' => $data['datebirth'],
-            'cell' => $data['cell'],
-            'cpf' => $data['cpf'],
-            'rg' => $data['rg'],
-            'email' => $data['email'],
-            'password' => $data['password'],
-            'image' => $data['image'],
-        ]); */
             return $result;
     }
 
@@ -104,7 +85,7 @@ class RegisterController extends Controller
                 return null;
             } else {
                 $upload = $request->image->storeAs('avatarUser',$nameFile);
-
+                
                 if(!$upload)
                     return null;
     

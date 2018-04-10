@@ -8,7 +8,6 @@ class ImportFileController extends Controller
 {
     public function upload()
     {
-        
     }
 
     public function move() 

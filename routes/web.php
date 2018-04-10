@@ -1,7 +1,7 @@
 <?php
 
 
-
+$this->get('importFile', 'ImportFileController@upload')->name('importFile');
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');

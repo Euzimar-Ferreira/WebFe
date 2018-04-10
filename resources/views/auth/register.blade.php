@@ -136,16 +136,20 @@
                             </div>
                         </div>
                         <!-- Adicionar Foto Usuário -->
-                                <div class="col l5 s12 grey lighten-3 file-field input-field" style="padding-top:20px;padding-bottom:10px;">
-                                    <a class="green-text text-darken-2" href="">
-                                        <img src="/storage/avatarUser/default.png" whidth="100px" height="100px" alt="Foto de Perfil">
-                                        <input type="file" name="image">
-                                    </a>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="hidden" >
-                                    </div>
-                                    
-                                </div>
+                            
+                        <div class="col l5 s12 grey lighten-3 file-field input-field" style="padding-top:20px;padding-bottom:10px;">
+                            <a class="green-text text-darken-2">
+                                <input type="file" name="image" id="image" onchange="PreviewImage( this.form.image.value);" >
+                                <img id="visual" whidth="100px" height="100px" alt="Foto de Perfil">
+                            </a>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="hidden" >
+                            </div>
+                        
+                        </div>
+                        <span class="red-text left" id="msgAvatar" style="display:none"> 
+                            <strong>MENSAGEM DA IMAGEM</strong>
+                        </span>
                         <!-- Botão para Logar na Conta -->
                         <div class="col l6 s12 offset-l3">
                             <button class="btn blue darken-2 waves-effect waves-blue z-depth-0" style="width:80%;margin-top:40px;" type="submit" name="register">CADASTRAR
@@ -161,5 +165,28 @@
 
 <!-- Import Scripts específico para esta página -->
 @push('scripts')
+
     <script type="text/javascript" src=""></script>
+
+<script>
+    
+    function PreviewImage(arquivo) { 
+        var oFReader = new FileReader(); 
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+        var extensao = (arquivo.substring(arquivo.lastIndexOf("."))).toLowerCase(); 
+        if (extensao != '.jpg' && extensao != '.png') 
+        {
+            document.getElementById("msgAvatar").style.display = 'block'; 
+            oFReader.onload = function (oFREvent) { 
+                document.getElementById("visual").src = '/storage/avatarUser/default.png'; 
+            };
+        } else {
+            document.getElementById("msgAvatar").style.display = 'none';
+            oFReader.onload = function (oFREvent) { 
+                document.getElementById("visual").src = oFREvent.target.result; 
+            }; 
+        }
+        
+    };
+</script>
 @endpush
