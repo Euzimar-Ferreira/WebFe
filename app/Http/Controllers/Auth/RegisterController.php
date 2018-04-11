@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Carbon;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class RegisterController extends Controller
 {
@@ -30,23 +31,23 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string',
+            'password' => 'required|string',
+        ]); 
+    }
 
     public function register(Request $request)
     {
+        $this->validateLogin($request);
         $dados = $request->all();
-
+        
         $nameFile = $this->importFile($dados, $request);
-
-        if ($nameFile == null) {
-           return redirect()->back()->with('error','O sistema encontrou Falhas ao Importar a Imagem');
-        }
-        
         $dados['image'] = $nameFile;
-
         event(new Registered($user = $this->create($dados, $request)));
-        
         $this->guard()->login($user);
-
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }
@@ -82,16 +83,7 @@ class RegisterController extends Controller
             $name = ((User::max('id'))+1).'-'.$data['name'];
             $extension = $request->image->extension();
             $nameFile = "{$name}.{$extension}";
-            if ($extension != 'png' && $extension != 'jpg') {
-                return null;
-            } else {
-                $upload = $request->image->storeAs('avatarUser',$nameFile);
-                
-                if(!$upload)
-                    return null;
-    
-            }
-            
+            $upload = $request->image->storeAs('avatarUser',$nameFile);
         } else {
             $name = 'default';
             $extension = 'png';

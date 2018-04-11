@@ -33,8 +33,13 @@ $(document).ready(function () {
         maxDate: new Date(),
         minDate: new Date(1900,0,1),
         defaultDate: new Date(),
-        showClearBtn:true,
-        closeOnSelect: false,
+        closeOnSelect: true,
+        onSelect: function(){
+                var elem = document.querySelector('.datepicker');
+                var instance = M.Datepicker.getInstance(elem);
+                $("#datebirth").val(instance.toString());
+                $("#datebirth").focus();
+        }
     });
 
     // Método para pular campos teclando ENTER
@@ -89,6 +94,8 @@ function PreviewImage(arquivo) {
         oFReader.onload = function (oFREvent) { 
             document.getElementById("visual").src = '/storage/avatarUser/default.png'; 
         };
+        document.getElementById("image").value = ''; 
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
     } else {
         document.getElementById("msgAvatar").style.display = 'none';
         oFReader.onload = function (oFREvent) { 
@@ -96,6 +103,3 @@ function PreviewImage(arquivo) {
         }; 
     }
 };
-function abrir() { 
-    $ ('#datebirth').click();
-}

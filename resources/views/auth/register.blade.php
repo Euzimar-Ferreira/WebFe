@@ -31,12 +31,12 @@
 
                     <!-- Alertas -->
                     @if(session('success'))
-                        <div class="input-field col l12 m12 s12">
+                        <div class="input-field col l12 m12 s12 lime accent-1" style="width:100%;padding:20px">
                           {{session('success')}}
                         </div>
                     @endif
                     @if(session('error'))
-                        <div class="input-field col l12 m12 s12">
+                        <div class="input-field col l12 m12 s12 lime accent-1" style="width:100%;padding:20px">
                           {{session('error')}}
                         </div>
                     @endif
@@ -47,18 +47,18 @@
                         @csrf 
                         <!-- Definição Nome -->
                         <div class="input-field col l6 s12">
-                            <input id="name" type="text" class="validate pula" name="name" required>
+                            <input id="name" type="text" class="validate pula" name="name" value="{{ old('name') }}" required>
                             <!--placeholder="Informe aqui seu nome"-->
                             <label for="name">Nome:</label>
                         </div>
                         <!-- Definição Sobrenome -->
                         <div class="input-field col l6 s12">
-                            <input id="lastname" type="text" class="validate pula" name="lastname" required>
+                            <input id="lastname" type="text" class="validate pula" name="lastname" value="{{ old('lastname') }}" required>
                             <label for="lastname">Sobrenome:</label>
                         </div>
                          <!-- Definição Sexo -->
                          <div class="input-field col l4 s12" id="sex" >   
-                                <select name="sex">
+                                <select name="sex" value="{{ old('sex') }}">
                                 <option value="Feminino">Feminino</option>
                                 <option value="Masculino">Masculino</option>
                                 </select>
@@ -66,58 +66,61 @@
                         </div>
                         <!-- Definição Cep -->
                         <div class="input-field col l4 s12">   
-                            <input id="cep" type="text" class="validate pula"  name="cep" required>
+                            <input id="cep" type="text" class="validate pula" value="{{ old('cep') }}" name="cep" required>
                             <label for="CEP">CEP:</label>
                         </div>
                         <!-- Definição Bairro -->
                         <div class="input-field col l4 s12">   
-                            <input id="bairro" type="text" class="validate pula" name="bairro" required>
+                            <input id="bairro" type="text" class="validate pula" name="bairro" value="{{ old('bairro') }}" required>
                             <label for="bairro">Bairro:</label>
                         </div>
                         <!-- Definição Cidade -->
                         <div class="input-field col l8 s12">   
-                            <input id="city" type="text" value=" " class="validate" name="city" required>
+                            <input id="city" type="text" value=" " class="validate" name="city" value="{{ old('city') }}" required>
                             <label for="city">Cidade:</label>
                         </div>
                          <!-- Definição UF -->
                          <div class="input-field col l4 s12">   
-                            <input id="uf" type="text" value=" " class="validate" name="uf" required>
+                            <input id="uf" type="text" value=" " class="validate" name="uf" value="{{ old('uf') }}" required>
                             <label for="UF">UF:</label>
                         </div>
                         <!-- Definição Endereço -->
                         <div class="input-field col l8 s12">   
-                            <input id="address" type="text" class="validate pula" name="address" required>
+                            <input id="address" type="text" class="validate pula" name="address" value="{{ old('address') }}" required>
                             <label for="address">Endereço:</label>
                         </div>
                         <!-- Definição Número -->
                         <div class="input-field col l4 s12">   
-                            <input id="number" type="text" class="validate pula" name="number" required>
+                            <input id="number" type="text" class="validate pula" name="number" value="{{ old('number') }}" required>
                             <label for="number">Número:</label>
                         </div>
                         <!-- Definição Data Nascimento -->
                         <div class="input-field col l6 s12">
-                            <input class="datepicker pulaa" onFocus="abrir()" placeholder="Clique Aqui" id="datebirth" name="datebirth" type="text" class="validate" name="datebirth" required>
+                            <input class=" pula left" id="datebirth" value="{{ old('datebirth') }}" name="datebirth" type="text" class="validate" name="datebirth" required>
+                            <a href="#!" class="datepicker">
+                                <i class="material-icons right green darken-3 white-text" style="padding-left:10px;padding-right:10px;margin-top:-40px;padding-top:3px;padding-bottom:3px">today</i>
+                            </a>
                             <label for="datebirth">Data de Nascimento:</label>
                         </div>
                         <!-- Definição Celular -->
                         <div class="input-field col l6 s12">   
-                            <input id="cell" type="tel" class="validate pula" name="cell" required>
+                            <input id="cell" type="tel" class="validate pula" name="cell" value="{{ old('cell') }}" required>
                             <label for="cell">Celular:</label>
                         </div>
                         <!-- Definição CPF -->
                         <div class="input-field col l6 s12">
-                            <input id="cpf" type="text" class="validate pula" name="cpf" required>
+                            <input id="cpf" type="text" class="validate pula" name="cpf" value="{{ old('cpf') }}" required>
                             <label for="CPF">CPF:</label>
                         </div>
                         <!-- Definição RG -->
                         <div class="input-field col l6 s12">
-                            <input id="rg" type="text" class="validate pula" name="rg">
+                            <input id="rg" type="text" class="validate pula" name="rg" value="{{ old('rg') }}">
                             <label for="RG">RG:</label>
                         </div>
                         <!-- Definição Email -->
                         <div class="input-field col l12 s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="email" type="email" class="validate pula" name="email" required>
+                            <input id="email" type="email" class="validate pula" name="email" value="{{ old('email') }}" required>
                             <label for="email">Email:</label>
                         </div>
                         <!-- Senhas -->
@@ -146,7 +149,7 @@
                                 </div>
                             </a>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="hidden" >
+                                <input class="file-path validate" type="hidden" id="nameFile">
                             </div>
                             
                         </div>
