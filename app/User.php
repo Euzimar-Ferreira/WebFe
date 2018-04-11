@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\resetSenha;
 
 class User extends Authenticatable
 {
@@ -13,5 +14,10 @@ class User extends Authenticatable
         'name','lastname','sex','cep','bairro','city','uf','address','number','datebirth','cell','cpf','rg', 'email','password','image',
     ];
 
-    
+
+   public function sendPasswordResetNotification($token)
+   {
+       $this->notify(new resetSenha($token));
+   }
+
 }
