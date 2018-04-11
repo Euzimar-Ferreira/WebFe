@@ -46,6 +46,7 @@ class resetSenha extends Notification
                     ->line('Você fez uma solicitação de alteração de senha.')
                     ->action('Alterar Senha', url('password/reset', $this->token))
                     ->line('Se você não solicitou esse pedido, entre em contato com o administrador do site.');
+                    
     }
 
     /**

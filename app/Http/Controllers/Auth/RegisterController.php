@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Carbon;
 
 class RegisterController extends Controller
 {
@@ -63,7 +64,7 @@ class RegisterController extends Controller
             'uf' => $data['uf'],
             'address' => $data['address'],
             'number' => $data['number'],
-            'datebirth' => $data['datebirth'],
+            'datebirth' => Carbon::createFromFormat('d/m/Y', $data['datebirth']),
             'cell' => $data['cell'],
             'cpf' => $data['cpf'],
             'rg' => $data['rg'],

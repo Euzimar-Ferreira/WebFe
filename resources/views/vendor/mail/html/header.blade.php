@@ -1,7 +1,7 @@
 <tr>
-    <td class="header">
+    <td class="header blue">
         <a href="{{ $url }}">
-            {{ $slot }}
+            Obrigado Por Usar o WebFe
         </a>
     </td>
 </tr>

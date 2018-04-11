@@ -14,7 +14,9 @@ class User extends Authenticatable
         'name','lastname','sex','cep','bairro','city','uf','address','number','datebirth','cell','cpf','rg', 'email','password','image',
     ];
 
-
+    protected $dates = [
+        'datebirth'
+    ];
    public function sendPasswordResetNotification($token)
    {
        $this->notify(new resetSenha($token));

@@ -56,9 +56,9 @@ $(document).ready(function () {
             //$("#mensagem").html('(Aguarde, consultando CEP ...)');
             $.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
                 if(resultadoCEP["resultado"]){
-                    $("#endereco").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
+                    $("#address").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
                     $("#bairro").val(unescape(resultadoCEP["bairro"]));
-                    $("#cidade").val(unescape(resultadoCEP["cidade"]));
+                    $("#city").val(unescape(resultadoCEP["cidade"]));
                     $("#uf").val(unescape(resultadoCEP["uf"]));
                 }
                 // $("#mensagem").html('');
