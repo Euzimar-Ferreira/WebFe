@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Email Está Incorreto',
-    'failedPass' => 'Senha Está Incorreta',
-    'throttle' => 'Muitas tentativas de login. Por favor, tente novamente em :seconds segundos.',
+    'failed' => 'As informações de login não foram encontradas.',
+    'throttle' => 'Muitas tentativas de login. Por favor tente novamente em :seconds segundos.',
 
 ];

@@ -97,8 +97,8 @@
                         <!-- Definição Data Nascimento -->
                         <div class="input-field col l6 s12">
                             <input class=" pula left" id="datebirth" value="{{ old('datebirth') }}" name="datebirth" type="text" class="validate" name="datebirth" required>
-                            <a href="#!" class="datepicker">
-                                <i class="material-icons right green darken-3 white-text" style="padding-left:10px;padding-right:10px;margin-top:-40px;padding-top:3px;padding-bottom:3px">today</i>
+                            <a href="#!"  class="datepicker ">
+                                <i class="material-icons right green darken-3 white-text hoverable" style="padding-left:10px;padding-right:10px;margin-top:-40px;padding-top:3px;padding-bottom:3px">today</i>
                             </a>
                             <label for="datebirth">Data de Nascimento:</label>
                         </div>

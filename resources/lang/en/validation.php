@@ -105,7 +105,8 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-
+    
+   
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

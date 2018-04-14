@@ -32,14 +32,24 @@ $(document).ready(function () {
         showMonthsShort: true,
         maxDate: new Date(),
         minDate: new Date(1900,0,1),
-        defaultDate: new Date(),
         closeOnSelect: true,
-        onSelect: function(){
-                var elem = document.querySelector('.datepicker');
-                var instance = M.Datepicker.getInstance(elem);
-                $("#datebirth").val(instance.toString());
-                $("#datebirth").focus();
-        }
+        
+    });
+    $('.datepicker-done').click(function() {
+        var elem = document.querySelector('.datepicker');
+        var instance = M.Datepicker.getInstance(elem);
+        $("#datebirth").val(instance.toString());
+        $("#datebirth").focus();
+    });
+    $('.datepicker-cancel').click(function() {
+        var elem = document.querySelector('.datepicker');
+        var instance = M.Datepicker.getInstance(elem);
+        var data = $('#datebirth').val();
+        split = data.split('/');
+        novadata = split[1] + "/" +split[0]+"/"+split[2];
+        data_americana = new Date(novadata); 
+        instance.setDate(data_americana);
+        
     });
 
     // Método para pular campos teclando ENTER
