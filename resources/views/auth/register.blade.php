@@ -145,7 +145,7 @@
                                 <input type="file" name="image" id="image" onchange="PreviewImage( this.form.image.value);" >
                                 <img src="storage/avatarUser/default.png" id="visual" whidth="100px" height="100px" alt="Foto de Perfil">
                                 <div>
-                                    clique aqui Para alterar
+                                    Foto de Perfil
                                 </div>
                             </a>
                             <div class="file-path-wrapper">
