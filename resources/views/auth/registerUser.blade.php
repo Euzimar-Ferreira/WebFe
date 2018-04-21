@@ -42,7 +42,7 @@
                     @endif
 
                     <!-- Formulário de Login -->
-                    <form id="frmCadastro" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                    <form id="frmCadastro" action="{{ route('registrarUser') }}" method="POST" enctype="multipart/form-data">
                         <!-- Definição do token -->
                         @csrf 
                         <!-- Definição Nome -->

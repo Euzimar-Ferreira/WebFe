@@ -12,15 +12,12 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class RegisterController extends Controller
+
+class RegisterManagerController extends Controller
 {
-    use RegistersUsers;
-
-    protected $redirectTo = '/home';
-
-    public function __construct()
+    public function showRegistrationForm()
     {
-        $this->middleware('guest');
+        return view('auth.registerManage');
     }
 
     protected function validator(array $data)
@@ -38,17 +35,17 @@ class RegisterController extends Controller
             'password' => 'required|string',
         ]); 
     }
-
-    public function register(Request $request)
+    public function registerManager(Request $request)
     {
         $this->validateLogin($request);
         $dados = $request->all();
         
         $nameFile = $this->importFile($dados, $request);
         $dados['image'] = $nameFile;
-        event(new Registered($user = $this->create($dados, $request)));
-        $this->guard()->login($user);
-        return $this->registered($request, $user)
+
+        event(new Registered($manager = $this->create($dados, $request)));
+        $this->guard()->login($manager);
+        return $this->registered($request, $manager)
                         ?: redirect($this->redirectPath());
     }
 
@@ -92,5 +89,4 @@ class RegisterController extends Controller
         
         return $nameFile;
     }
-
 }

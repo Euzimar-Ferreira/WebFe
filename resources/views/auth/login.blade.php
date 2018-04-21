@@ -73,6 +73,6 @@
         </div>
 
         <!-- Botão para Cadastrar Usuário -->
-        <a href="{{ route('register') }}" class="waves-effect waves-teal btn grey lighten-1 green-text text-darken-4 z-depth-0" style="width:50%">Cadastre-se AQUI</a>
+        <a href="{{ route('registrar-usuario') }}" class="waves-effect waves-teal btn grey lighten-1 green-text text-darken-4 z-depth-0" style="width:50%">Cadastre-se AQUI</a>
     </center>
     @endsection

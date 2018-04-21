@@ -6,8 +6,13 @@ $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-$this->post('register', 'Auth\RegisterController@register');
+$this->get('registrar-usuario', 'Auth\RegisterUserController@showRegistrationForm')->name('registrar-usuario');
+$this->get('registrar-gerente', 'Auth\RegisterManagerController@showRegistrationForm')->name('registrar-gerente');
+$this->get('registrar-administrador', 'Auth\RegisterAdministrationController@showRegistrationForm')->name('registrar-administrador');
+
+$this->post('registrarUser', 'Auth\RegisterUserController@registerUser')->name('registrarUser');
+$this->post('registrarManager', 'Auth\RegisterManagerController@registerManager')->name('registrarManager');
+$this->post('registrarAdministration', 'Auth\RegisterAdministrationController@registerAdministration')->name('registrarAdministration');
 
 // Password Reset Routes...
 $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
