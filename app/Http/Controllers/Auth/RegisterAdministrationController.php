@@ -43,7 +43,7 @@ class RegisterAdministrationController extends Controller
 
     protected function create(array $data,Request $request)
     {
-        
+        $type = 'A';
         $result = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -61,6 +61,7 @@ class RegisterAdministrationController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
+            'type' => $type,
         ]);
             return $result;
     }

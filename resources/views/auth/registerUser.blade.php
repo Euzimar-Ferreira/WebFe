@@ -14,9 +14,9 @@
 
     <center>
         <!-- Import logo -->
-        <div class="blue darken-1" style="min-height:260px">
+        <div class="green accent-4" style="min-height:260px">
             <br/>
-            <img src="img/logo.png" alt="Logo do site @Fé.com" width="125px" height="68px" />
+            <div style="width:125px;height:68px;background-image:url('img/logo.png');background-size:100%"></div>
         </div>
 
         <!-- card de login -->
@@ -25,8 +25,8 @@
                 <br/>
                 <div class="row">
                     <!-- Título do Card -->
-                    <span class="card-title blue-text text-darken-4" style="font-size:20px">
-                        ACESSAR
+                    <span class="card-title green-text text-darken-4" style="font-size:20px">
+                        CADASTRO DE PARTICIPANTE
                     </span>
 
                     <!-- Alertas -->
@@ -42,7 +42,7 @@
                     @endif
 
                     <!-- Formulário de Login -->
-                    <form id="frmCadastro" action="{{ route('registrarUser') }}" method="POST" enctype="multipart/form-data">
+                    <form id="frmCadastro" action="{{ route('registrarManager') }}" method="POST" enctype="multipart/form-data">
                         <!-- Definição do token -->
                         @csrf 
                         <!-- Definição Nome -->

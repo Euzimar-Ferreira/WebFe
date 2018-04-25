@@ -12,7 +12,7 @@
         <!-- Import JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Import google Font -->
-
+        
         <!-- Import icone Site -->
         <link rel="icon" type="imagem/png" href="img/icone4.png" />
 
@@ -20,6 +20,10 @@
             .imagem:hover .dd{
                 display:block !important;
             }
+            .menu_lateral{
+    float: left;
+    margin-left:20px;
+}
         </style>
 
         <!-- Definição do Título -->
@@ -37,7 +41,7 @@
                 <!-- bloco para barra mobile -->
                 <div class="barraMobile">
                 
-                    @yield('Mobile')
+                    @yield('mobile')
 
                 </div>
                 <!-- bloco para conteúdo -->

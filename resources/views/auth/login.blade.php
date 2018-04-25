@@ -17,7 +17,7 @@
         <!-- Import logo -->
         <div class="blue darken-1" style="min-height:260px">
             <br/>
-            <img src="img/logo.png" alt="Logo do site @Fé.com" width="125px" height="68px"/>
+            <div style="width:125px;height:68px;background-image:url('img/logo.png');background-size:100%"></div>
         </div>
 
         <!-- card de login -->
@@ -61,7 +61,7 @@
 
                         <!-- Botão para Logar na Conta -->
                         <div class="col l6 m8 offset-m2 s12 offset-l3">
-                            <button class="btn blue darken-2 waves-effect waves-blue z-depth-0" style="width:80%;margin-top:40px;" type="submit" name="entrar">ENTRAR 
+                            <button class="btn blue darken-2 waves-effect waves-blue z-depth-0 " style="width:80%;margin-top:40px;" type="submit" name="entrar">ENTRAR 
                                 <i class="material-icons right green" style="margin-right:-17px;padding-left:10px;padding-right:10px">arrow_forward</i>
                             </button>
                             
@@ -71,8 +71,18 @@
             </div>
             
         </div>
-
-        <!-- Botão para Cadastrar Usuário -->
-        <a href="{{ route('registrar-usuario') }}" class="waves-effect waves-teal btn grey lighten-1 green-text text-darken-4 z-depth-0" style="width:50%">Cadastre-se AQUI</a>
+        <div class="row">
+            <div class="col l6 m6 s12 offset-l3 offset-m3">
+                <div class="col l6 m12 s12 " style="padding-bottom:10px">
+                     <!-- Botão para Cadastrar Participante -->
+                    <a href="{{ route('registrar-usuario') }}" class="waves-effect waves-teal btn green accent-4 white-text text-darken-4 z-depth-0" style="width:100%;font-size:13px">Cadastrar Participante</a>
+                </div>
+                <div class="col l6 m12 s12">
+                    <!-- Botão para Cadastrar Gerente -->
+                   <a href="{{ route('registrar-gerente') }}" class="waves-effect waves-teal btn orange accent-4 white-text text-darken-4 z-depth-0" style="width:100%;font-size:13px">Cadastrar Organizador</a>
+               </div>
+            </div>
+        </div>
+       
     </center>
     @endsection

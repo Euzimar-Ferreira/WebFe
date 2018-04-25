@@ -60,7 +60,7 @@ class RegisterUserController extends Controller
 
     protected function create(array $data,Request $request)
     {
-        
+        $type = 'U';
         $result = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -78,6 +78,7 @@ class RegisterUserController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
+            'type' => $type,
         ]);
             return $result;
     }
