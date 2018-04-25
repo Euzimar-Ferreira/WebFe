@@ -8,6 +8,7 @@ class IndexController extends Controller
 {
     public function index () 
     {
-        return view('pages.index');
+        $userLogin = auth()->check();
+        return view('pages.index',compact('userLogin'));
     }
 }
