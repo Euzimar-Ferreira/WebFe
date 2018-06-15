@@ -51,6 +51,7 @@ class RegisterUserController extends Controller
         
         $nameFile = $this->importFile($dados, $request);
         $dados['image'] = $nameFile;
+        $dados['type'] = 'U';
 
         event(new Registered($user = $this->create($dados, $request)));
         $this->guard()->login($user);
@@ -60,8 +61,8 @@ class RegisterUserController extends Controller
 
     protected function create(array $data,Request $request)
     {
-        $type = 'U';
         $result = User::create([
+            'type' => $data['type'],
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'sex' => $data['sex'],
@@ -78,13 +79,15 @@ class RegisterUserController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
-            'type' => $type,
+            
         ]);
             return $result;
     }
 
     protected function importFile(array $data, Request $request)
     {
+
+
         //Criar nome para novo arquivo de imagem: Avatar do Usuário
         if($request->hasFile('image') && $request->file('image')->isValid()){
             $name = ((User::max('id'))+1).'-'.$data['name'];

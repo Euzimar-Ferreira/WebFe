@@ -34,6 +34,7 @@ class RegisterAdministrationController extends Controller
         
         $nameFile = $this->importFile($dados, $request);
         $dados['image'] = $nameFile;
+        $dados['type'] = 'A';
 
         event(new Registered($user = $this->create($dados, $request)));
         $this->guard()->login($user);
@@ -43,8 +44,8 @@ class RegisterAdministrationController extends Controller
 
     protected function create(array $data,Request $request)
     {
-        $type = 'A';
         $result = User::create([
+            'type' => $data['type'],
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'sex' => $data['sex'],
@@ -61,7 +62,6 @@ class RegisterAdministrationController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
-            'type' => $type,
         ]);
             return $result;
     }

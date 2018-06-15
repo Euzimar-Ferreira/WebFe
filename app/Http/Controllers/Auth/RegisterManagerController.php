@@ -42,6 +42,7 @@ class RegisterManagerController extends Controller
         
         $nameFile = $this->importFile($dados, $request);
         $dados['image'] = $nameFile;
+        $dados['type'] = 'M';
 
         event(new Registered($manager = $this->create($dados, $request)));
         $this->guard()->login($manager);
@@ -51,8 +52,8 @@ class RegisterManagerController extends Controller
 
     protected function create(array $data,Request $request)
     {
-        $type = 'M';
         $result = User::create([
+            'type' => $data['type'],
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'sex' => $data['sex'],
@@ -69,7 +70,6 @@ class RegisterManagerController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'image' => $data['image'],
-            'type' => $type,
         ]);
             return $result;
     }

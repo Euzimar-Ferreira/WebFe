@@ -42,7 +42,7 @@
                     @endif
 
                     <!-- Formulário de Login -->
-                    <form id="frmCadastro" action="{{ route('registrarManager') }}" method="POST" enctype="multipart/form-data">
+                    <form id="frmCadastro" action="{{ route('registrarUser') }}" method="POST" enctype="multipart/form-data">
                         <!-- Definição do token -->
                         @csrf 
                         <!-- Definição Nome -->
@@ -142,14 +142,14 @@
                             
                         <div class="col l5 s12 grey lighten-3 file-field input-field hoverable" style="padding-top:20px;padding-bottom:10px;">
                             <a class="green-text text-darken-2">
-                                <input type="file" name="image" id="image" onchange="PreviewImage( this.form.image.value);" >
+                                <input type="file" class="dropify" name="image" id="image" onchange="PreviewImage( this.form.image.value);" >
                                 <img src="storage/avatarUser/default.png" id="visual" whidth="100px" height="100px" alt="Foto de Perfil">
                                 <div>
                                     Foto de Perfil
                                 </div>
                             </a>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="hidden" id="nameFile">
+                                <input class="file-path validate " type="hidden" id="nameFile">
                             </div>
                             
                         </div>
